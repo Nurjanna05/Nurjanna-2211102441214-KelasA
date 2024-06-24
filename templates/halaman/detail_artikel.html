@@ -1,0 +1,51 @@
+{% extends 'halaman/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-header header-filter header-small" data-parallax="true" style="background-image: url('{% static 'halaman/assets/img/bg.jpg' %}');"></div>
+<div class="main main-raised" style="margin-top: -450px">
+    <div class="container">
+        <div class="section section-text">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="card-image">
+                        {% if artikel.thumbnail %}
+                            <img style="width: 90%;" src="{{ artikel.thumbnail.url }}" />
+                        </a>
+                        {% else %}
+                            <img src="{% static 'halaman/assets/img/placeholder.jpg'%}" alt="">
+                        {% endif %}
+                    </div>
+                    <h3 class="title">{{ artikel.judul }}</h3>
+                    <p>{{ artikel.isi }}</p>
+
+                    <blockquote>
+                        <small>
+                        Created by : {{ artikel.author}}
+                        </small>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-blog-info">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="blog-tags mb-5">
+                                Kategori :
+                                <span class="label label-primary">{{ artikel.kategori}}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr />
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock%}
